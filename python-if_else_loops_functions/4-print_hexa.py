@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-num = 0
+output = ""
 for i in range(99):
-    print(f"{num} = {hex(num)}")
-    num += 1
+    output += "{} = {}\n".format(i, hex(i))
+print(output, end='')
