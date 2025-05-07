@@ -2,4 +2,4 @@
 alphabet = ""
 for i in range(ord('a'), ord('z') + 1):
     alphabet += chr(i)
-print("{}".format(alphabet))
+print("{}".format(alphabet), end='')
