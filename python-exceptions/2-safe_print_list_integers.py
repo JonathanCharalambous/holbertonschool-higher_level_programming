@@ -2,7 +2,6 @@
 
 def safe_print_list_integers(my_list=[], x=0):
     count = 0
-    len = x
 
     try:
         for i in range(x):
@@ -11,6 +10,6 @@ def safe_print_list_integers(my_list=[], x=0):
     except (TypeError, ValueError):
         pass
     except IndexError:
-        pass
+        break
     print()
     return count
