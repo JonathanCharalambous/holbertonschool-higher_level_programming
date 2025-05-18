@@ -31,9 +31,9 @@ Tests:
     >>> print_square("4")
     Traceback (most recent call last):
         ...
-    TypeError: size must be an interger
+    TypeError: size must be an integer
 
     >>> print_square(2.5)
     Traceback (most recent call last):
         ...
-    TypeError: size must be an interger
+    TypeError: size must be an integer
