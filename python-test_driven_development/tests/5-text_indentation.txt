@@ -12,7 +12,7 @@ First import ``text_indentation`` from the ``5-text_indentation`` file:
 
 Tests:
 
-    >>> text_indentation(Hello. How are you? I'm fine: thanks.)
+    >>> text_indentation("Hello. How are you? I'm fine: thanks.")
     Hello.
 
     How are you?
@@ -22,7 +22,7 @@ Tests:
     thanks.
 
 
-    >>> text_indentation(This is just a simple string)
+    >>> text_indentation("This is just a simple string")
     This is just a simple string
 
     >>> text_indentation("")
@@ -31,4 +31,4 @@ Tests:
     >>> text_indentation(12345)
     Traceback (most recent call last):
         ...
-    ValueError - Text must be a string
+    ValueError: Text must be a string
