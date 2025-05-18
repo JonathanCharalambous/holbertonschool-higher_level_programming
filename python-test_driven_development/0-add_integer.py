@@ -5,7 +5,7 @@ This module provides the add_integer function that adds two numbers.
 
 
 def add_integer(a, b=98):
- 
+
     """
     Adds two numbers, casting them to integers first.
 
