@@ -7,7 +7,7 @@ Using ``print_square``
 
 First import ``print_square`` from the ``4-print_square`` file:
 
-    >>> add = __import__('4-print_square').print_square
+    >>> print_square = __import__('4-print_square').print_square
 
 
 Tests:
