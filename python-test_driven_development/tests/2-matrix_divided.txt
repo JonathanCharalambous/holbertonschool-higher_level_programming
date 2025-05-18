@@ -7,7 +7,7 @@ Using ``matrix_divided``
 
 First import ``matrix_divided`` from the ``2-matrix_divided`` file:
 
-    >>> add = __import__('2-matrix_divided').matrix_divided
+    >>> matrix_divided  = __import__('2-matrix_divided').matrix_divided
 
 
 Tests:
