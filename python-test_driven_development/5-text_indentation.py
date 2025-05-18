@@ -30,3 +30,6 @@ def text_indentation(text):
                 i += 1
             continue
         i += 1
+
+    if text and text[-1] not in ".?:":
+        print()
