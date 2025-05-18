@@ -30,7 +30,7 @@ Tests:
 	My name is John Doe
 	
 	>>> say_my_name("Alice")
-	My name is Alice
+	My name is Alice 
 	
 	>>> say_my_name(123, "Smith")
 	Traceback (most recent call last):
@@ -43,4 +43,4 @@ Tests:
 	TypeError: last_name must be a string
 	
 	>>> say_my_name("", "")
-	My name is
+	My name is  
