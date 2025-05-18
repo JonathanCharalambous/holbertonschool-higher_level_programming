@@ -26,14 +26,14 @@ Tests:
     >>> print_square(-2)
     Traceback (most recent call last):
         ...
-    ValueError - size must be >= 0
+    ValueError: size must be >= 0
 
     >>> print_square("4")
     Traceback (most recent call last):
         ...
-    TypeError - size must be an interger
+    TypeError: size must be an interger
 
     >>> print_square(2.5)
     Traceback (most recent call last):
         ...
-    TypeError - size must be an interger
+    TypeError: size must be an interger
