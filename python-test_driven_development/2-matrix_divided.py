@@ -1,6 +1,25 @@
 #!/usr/bin/python3
+"""
+This module provides the matrix_divided function that divides a matrix by a given number.
+"""
+
 
 def matrix_divided(matrix, div):
+    """
+   Divides each number on a matrix by the provided number.
+
+    Args:
+        a: The maxtrix.
+        b: The number to divide by.
+
+    Returns:
+        The divided matrix.
+
+    Raises:
+        TypeError: If div is not an integer or float.
+        TypeError: If each row of the matrix is not the same size.
+        ZeroDivisionError: If div is 0.
+    """
     if not isinstance(matrix, list) or \
         any(not isinstance(row, list) for row in matrix) or \
         any(not isinstance(item, (int, float)) for row in matrix for item in row):
