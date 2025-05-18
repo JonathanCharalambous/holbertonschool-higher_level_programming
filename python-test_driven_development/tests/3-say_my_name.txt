@@ -26,21 +26,21 @@ First import ``say_my_name`` from the ``3-say_my_name`` file:
 
 Tests:
 
-    >>> say_my_name("John", "Doe")
-    My name is John Doe
-
-    >>> say_my_name("Alice")
-    My name is Alice
-
-    >>> say_my_name(123, "Smith")
-    Traceback (most recent call last):
-	    ...
+	>>> say_my_name("John", "Doe")
+	My name is John Doe
+	
+	>>> say_my_name("Alice")
+	My name is Alice
+	
+	>>> say_my_name(123, "Smith")
+	Traceback (most recent call last):
+	    	...
 	TypeError: first_name must be a string
-    
-    >>> say_my_name("Jane", 456)
-    Traceback (most recent call last):
-        ...
-    TypeError: last_name must be a string
-
-    >>> say_my_name("", "")
-    My name is
+	
+	>>> say_my_name("Jane", 456)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+	
+	>>> say_my_name("", "")
+	My name is
