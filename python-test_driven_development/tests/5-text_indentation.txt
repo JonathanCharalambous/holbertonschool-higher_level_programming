@@ -24,4 +24,4 @@ Tests:
     >>> text_indentation(12345)
     Traceback (most recent call last):
         ...
-    TypeError: Text must be a string
+    TypeError: text must be a string
