@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-    """
-    This module provides the say_my_name function that
-    prints a message with the provided strings.
-    """
+"""
+This module provides the print_square function that
+prints a square based on the provided size.
+"""
 def print_square(size):
     """
-    Prints a message with the two provided arguments.
+    Prints a square based on the provided size.
 
     Args:
         first_name: First name to print.
@@ -15,8 +15,8 @@ def print_square(size):
         No return
 
     Raises:
-        TypeError: If first name is not a string.
-        TypeError: Iflast name is not a string.
+        TypeError: If size is not an integer.
+        ValueError: If size is a negative number.
 
     """
     if not isinstance(size, int):
