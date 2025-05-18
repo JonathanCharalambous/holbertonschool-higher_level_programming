@@ -14,13 +14,13 @@ Tests:
 
     >>> text_indentation("Hello. How are you? I'm fine: thanks.")
     Hello.
-
+    <BLANKLINE>
     How are you?
-
+    <BLANKLINE>
     I'm fine:
-
+    <BLANKLINE>
     thanks.
-
+    <BLANKLINE>
 
     >>> text_indentation("This is just a simple string")
     This is just a simple string
@@ -33,6 +33,6 @@ Tests:
         ...
     TypeError: text must be a string
 
-    >>> text_indentation("Dog\n")
-    Dog
+    >>> text_indentation("\n")
+
 
