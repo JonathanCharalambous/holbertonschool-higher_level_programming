@@ -14,9 +14,13 @@ Tests:
 
     >>> text_indentation("Hello. How are you? I'm fine: thanks.")
     Hello.
+
     How are you?
+
     I'm fine:
+
     thanks.
+
 
     >>> text_indentation("This is just a simple string")
     This is just a simple string
