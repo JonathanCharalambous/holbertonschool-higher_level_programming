@@ -20,7 +20,7 @@ Tests:
     ###
     ###
 
-    >>> matrix_divided(0)
+    >>> print_square(0)
     
 
     >>> print_square(-2)
