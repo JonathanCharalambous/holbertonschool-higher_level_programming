@@ -24,7 +24,6 @@ class Rectangle:
         self.__height = height
     
     @property
-    
     def width(self):
         """Getter for Rectangle.width."""
         return self.__width
@@ -43,6 +42,7 @@ class Rectangle:
         """Getter for Rectangle.height."""
         return self.__height
     
+    @height.setter
     def height(self, value):
         """Getter for Rectangle.height."""
         if not isinstance(value, int):
