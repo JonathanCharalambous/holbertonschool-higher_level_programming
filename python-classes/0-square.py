@@ -9,6 +9,4 @@ that defines a square.
 class Square:
 
     """This class defines a square."""
-
-    def __int__(self):
-        pass
+    pass
