@@ -11,6 +11,7 @@ class Rectangle:
     """This class defines a blank Rectangle."""
 
     def __init__ (self, width=0, height=0):
+        """Initialize a new Rectangle instance."""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width < 0:
@@ -23,11 +24,14 @@ class Rectangle:
         self.__height = height
     
     @property
+    
     def width(self):
+        """Getter for Rectangle.width."""
         return self.__width
     
     @width.setter
     def width(self, value):
+        """Setter for Rectangle.width."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -36,9 +40,11 @@ class Rectangle:
     
     @property
     def height(self):
+        """Getter for Rectangle.height."""
         return self.__height
     
     def height(self, value):
+        """Getter for Rectangle.height."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
