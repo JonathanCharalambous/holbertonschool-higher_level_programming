@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 """
-This module provides the add_integer function 
-that defines a square.
+This module defines an empty class Square used to represent a square.
 """
 
 
