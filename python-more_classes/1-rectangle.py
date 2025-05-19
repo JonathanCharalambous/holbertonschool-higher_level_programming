@@ -10,7 +10,7 @@ class Rectangle:
 
     """This class defines a blank Rectangle."""
 
-    def __init__ (self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         """Initialize a new Rectangle instance."""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
