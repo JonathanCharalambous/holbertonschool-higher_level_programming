@@ -42,12 +42,13 @@ class Square:
 
     def my_print(self):
         """Prints a square using # based on size."""
-        for i in range(self.__size):
-            for j in range(self.__size):
-                print("#", end="")
-            print()
         if self.__size == 0:
             print()
+        for _ in range(self.__position[1]):
+            print()
+        for _ in range(self.__position[0]):
+            print(" " * self.__position[0] + "#" * self.__size)
+
     @property
     def position(self):
         """Getter for square.position."""
