@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 This module defines an empty class Square used to represent a square.
 """
@@ -32,4 +31,4 @@ class Square:
         Returns:
             int: The area of the square.
         """
-        return self.__size * self.__size
+        return self.__size ** 2
