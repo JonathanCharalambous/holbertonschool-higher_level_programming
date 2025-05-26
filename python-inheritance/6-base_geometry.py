@@ -6,7 +6,7 @@ used to represent BaseGeometry.
 
 
 class BaseGeometry:
-
+    """A class BaseGeometry."""
     def __init__(self):
         """Initializes the BaseGeometry class."""
         pass
