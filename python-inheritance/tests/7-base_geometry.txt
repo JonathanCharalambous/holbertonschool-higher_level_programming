@@ -1,0 +1,87 @@
+The ``BaseGeometry`` module
+=============================
+
+Using ``BaseGeometry``
+-----------------------
+
+First import ``BaseGeometry`` from the ``7-base_geometry`` file:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test: Instantiation
+
+    >>> bg = BaseGeometry()
+
+Test: area() should raise Exception
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Test: integer_validator() with missing arguments
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test: Valid input
+
+    >>> bg.integer_validator("age", 1)
+
+Test: Zero value
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+Test: Negative value
+
+    >>> bg.integer_validator("age", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+Test: String value
+
+    >>> bg.integer_validator("age", "4")
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test: Tuple value
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test: List value
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test: Boolean value (note: `True` is technically an int subclass)
+
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test: Dictionary value
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test: None
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
