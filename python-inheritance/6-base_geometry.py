@@ -13,4 +13,4 @@ class BaseGeometry:
 
     def area(self):
         """Calculates the area of a geometry."""
-        raise Exception("area() is not implemented ")
+        raise Exception("area() is not implemented")
