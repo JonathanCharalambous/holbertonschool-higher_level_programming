@@ -7,9 +7,10 @@ used to represent a Rectangle which implements BaseGeometry.
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """"
-    class that is used to represent 
+    class that is used to represent
     a Rectangle which implements BaseGeometry
     """""
     def __init__(self, width, height):
