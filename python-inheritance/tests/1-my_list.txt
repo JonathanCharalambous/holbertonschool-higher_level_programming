@@ -4,39 +4,72 @@ The ``MyList`` module
 Using ``MyList``
 -------------------
 
+First import ``MyList`` from the ``1-my_list`` file:
 
-First import ``MyList`` from the ``1-MyList`` file:
+    >>> MyList = __import__('1-my_list').MyList
 
-    >>> MyList = __import__('1-MyList').MyList
+Check instantiation:
 
+    >>> my_list = MyList()
+    >>> isinstance(my_list, MyList)
+    True
 
-Tests:
+Check inheritance from built-in ``list``:
 
-    >>> MyList(2, 3)
-    5
+    >>> issubclass(MyList, list)
+    True
 
-    >>> MyList(2)
-    100
+Check ``__str__`` representation (inherits from list):
 
-    >>> MyList(3.7, 2.3)
-    5
+    >>> my_list.append(3)
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> print(my_list)
+    [3, 1, 2]
 
-    >>> add_integer("a", 2)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+Check ``append()`` method (inherited from list):
 
-    >>> add_integer(2, "b")
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+    >>> my_list.append(4)
+    >>> print(my_list)
+    [3, 1, 2, 4]
 
-    >>> add_integer(1, float("inf"))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
+Check ``print_sorted()`` prints sorted list but does not modify original:
 
-    >>> add_integer(1, float("nan"))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4]
+    >>> print(my_list)
+    [3, 1, 2, 4]
+
+Check with already sorted list:
+
+    >>> sorted_list = MyList()
+    >>> sorted_list.append(1)
+    >>> sorted_list.append(2)
+    >>> sorted_list.append(3)
+    >>> sorted_list.print_sorted()
+    [1, 2, 3]
+    >>> print(sorted_list)
+    [1, 2, 3]
+
+Check with negative numbers:
+
+    >>> neg_list = MyList()
+    >>> neg_list.extend([5, -2, 0])
+    >>> neg_list.print_sorted()
+    [-2, 0, 5]
+    >>> print(neg_list)
+    [5, -2, 0]
+
+Check with empty list:
+
+    >>> empty = MyList()
+    >>> empty.print_sorted()
+    []
+
+Check ``print_sorted()`` returns a new list (verify indirectly):
+
+    >>> original = MyList([3, 2, 1])
+    >>> original.print_sorted()
+    [1, 2, 3]
+    >>> print(original)
+    [3, 2, 1]
