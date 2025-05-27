@@ -7,6 +7,7 @@ used to represent a Square which implements Rectangle.
 
 Rectangle = __import__('9-rectangle').Rectangle
 
+
 class Square(Rectangle):
     """"
     class that is used to represent
