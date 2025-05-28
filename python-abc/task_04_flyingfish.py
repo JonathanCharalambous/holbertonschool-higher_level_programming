@@ -31,4 +31,4 @@ class FlyingFish(Fish, Bird):
     
     def habitat(self):
         """Override the habitat method to include a message for flying fish."""
-        print("The flying fish lives in water and the sky!")
+        print("The flying fish lives both in water and the sky!")
