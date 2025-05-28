@@ -21,7 +21,7 @@ class Circle(Shape):
     """Concrete implementation of Shape for circles."""
     def __init__ (self, radius):
         """Initialize the circle"""
-        if radius <= 0:
+        if radius < 0:
             raise ValueError("Radius must be a positive number.")
         self.radius = radius
 
