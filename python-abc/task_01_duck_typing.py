@@ -22,7 +22,7 @@ class Circle(Shape):
     def __init__ (self, radius):
         """Initialize the circle"""
         if radius < 0:
-            raise ValueError("Radius must be a positive number.")
+            return
         self.radius = radius
 
     def area(self):
