@@ -26,7 +26,6 @@ class VerboseList(list):
     
     def pop(self, index=-1):
         """Pop an item from the list at the given index and print a message."""
-        if index < -len(self) or index >= len(self):
-            exit()
         item = super().pop(index)
         print("Popped {} from the list.".format(item))
+        return item
