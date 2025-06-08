@@ -16,4 +16,4 @@ class Student:
         """Returns the dictionary representation of the Student instance"""
         if attrs is None:
             return self.__dict__
-        return {key: self.__dict__[key] for key in attrs if key in self.__dict__}
+        return {k: self.__dict__[k] for k in attrs if k in self.__dict__}
