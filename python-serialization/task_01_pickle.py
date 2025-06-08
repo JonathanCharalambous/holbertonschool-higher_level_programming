@@ -14,8 +14,12 @@ class CustomObject:
 
     @classmethod
     def deserialize(cls, filename):
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
+        try: 
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except (EOFError, FileNotFoundError):
+            print("File not found or empty.")
+            return None
         
     def display(self):
         print("Name: {}, Age: {}, Is Student: {}".
