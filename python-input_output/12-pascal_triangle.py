@@ -4,7 +4,10 @@ This module provides a function to generate Pascal's triangle
 """
 
 def pascal_triangle(n):
-    """Returns a list of lists of integers representing Pascal's triangle of n levels."""
+    """
+    Returns a list of lists of integers representing
+    Pascal's triangle of n levels.
+    """
     if n <= 0:
         return []
     
