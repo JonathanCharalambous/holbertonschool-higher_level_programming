@@ -1,0 +1,26 @@
+1. HTTP vs HTTPS
+The main difference between HTTP and HTTPS is that HTTPS is much more secure. HTTPS transmits it's data in encrypted form which allows it to be safe from 3rd party interception over a network.
+This can be done through the use of SSL/TLS certificates which allows the client and service to reliably determine where the correct endpoints are.
+Other differences between the two are that SEO much prefers HTTPS so these websites will be shown first. The default port for both is different too, HTTP is 80 and HTTPS is 443.
+
+2. A very basic flow for a HTTP request is the client will send a request with a URL, Method, Headers, and Body. A server will then send a response back to the client with 
+a status code, Headers, and Body. Client -> Request -> Server -> Response -> Client
+
+3. 
+GET	    Retrieves data from the server.	        Fetching user profile from /api/users/123.
+POST	Submits new data to the server.	        Submitting a form or creating a new user via API.
+PUT	    Replaces data at a specific resource.	Updating an entire user profile at /api/users/123.
+PATCH	Partially updates a resource.	        Updating just the email field of a user.
+DELETE	Deletes the specified resource.	        Removing a blog post at /api/posts/99.
+
+
+200 OK	                    Request succeeded.	                            GET request to fetch user profile.
+201 Created	                Resource successfully created.	                POST request to create a new blog post.
+204 No Content	            Success but no content returned.	            DELETE request that completed with nothing to return.
+400 Bad Request	            Malformed request syntax.	                    Missing required fields in JSON body.
+401 Unauthorized	        Authentication required.	                    Accessing /admin without being logged in.
+403 Forbidden	            Authenticated but not allowed.	                Logged-in user trying to access another user's data.
+500 Internal Server Error	Generic server crash.	                        Bug in backend code.
+502 Bad Gateway	            Invalid response from upstream.	                Proxy server got an invalid response from backend.
+503 Service Unavailable	    Server is down or overloaded.	                During maintenance or heavy traffic.
+504 Gateway Timeout	        Upstream server didn’t respond.	                API call to slow backend timed out.
