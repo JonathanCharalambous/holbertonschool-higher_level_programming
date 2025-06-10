@@ -24,14 +24,11 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/html")
             self.end_headers()
 
-            data = {
-                "status": "OK",
-            }
 
-            self.wfile.write(json.dumps(data).encode('utf-8'))
+            self.wfile.write("OK".encode('utf-8'))
         elif self.path == '/info':
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -57,15 +54,11 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/html")
             self.end_headers()
 
-            data = {
-                "error": "Not Found",
-                "message": "The requested resource was not found."
-            }
 
-            self.wfile.write(json.dumps(data).encode('utf-8'))
+            self.wfile.write("Endpoint not found".encode('utf-8'))
 
 def run_server():
     with socketserver.TCPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
