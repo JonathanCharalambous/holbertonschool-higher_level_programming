@@ -6,7 +6,7 @@ def fetch_and_print_posts():
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
 
 
-    print(r.status_code)
+    print("Status Code:", r.status_code)
     print(r.json())
     print(r.headers)
 
