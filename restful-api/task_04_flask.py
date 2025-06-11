@@ -39,6 +39,7 @@ def add_user():
         return jsonify({"error": "Username is required"}), 400
     
     if username in users_dict:
+        print("BROKEN")
         return jsonify({"error": "Username is required"}), 400
 
     users_dict[username] = {
