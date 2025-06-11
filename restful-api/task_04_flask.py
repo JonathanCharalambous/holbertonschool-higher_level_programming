@@ -51,7 +51,12 @@ def add_user():
 
     return jsonify({
         "message": "User added",
-        "user": users_dict[username]
+        "user": {
+            "username": username,
+            "name": name,
+            "age": age,
+            "city": city 
+        }
     }), 201
 
 
