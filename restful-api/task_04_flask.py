@@ -29,6 +29,9 @@ def users(username):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Invalid input"}), 400
     
     username = data.get('username')
     name = data.get('name')
