@@ -13,7 +13,7 @@ def home():
     
 def data():
 
-    return jsonify(list(users_dict.keys)), 200
+    return jsonify(list(users_dict.keys())), 200
 
 @app.route('/status')
 def status():
@@ -55,7 +55,7 @@ def add_user():
             "username": username,
             "name": name,
             "age": age,
-            "city": city 
+            "city": city
         }
     }), 201
 
