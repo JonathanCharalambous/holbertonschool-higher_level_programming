@@ -12,8 +12,8 @@ def home():
 @app.route('/data')
     
 def data():
-    
-    return jsonify(users_dict), 200
+
+    return jsonify(list(users_dict.keys)), 200
 
 @app.route('/status')
 def status():
@@ -40,7 +40,7 @@ def add_user():
     if username in users_dict:
         return jsonify({"error": "Username already exists"}), 400
 
-    users_dict = {
+    users_dict[username] = {
 
         "username": username,
         "name": name,
