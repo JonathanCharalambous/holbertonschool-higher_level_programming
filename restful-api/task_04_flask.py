@@ -2,13 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users_dict = {
-        "jane": {
-            "name": "Jane Doe",
-            "age": 28,
-            "city": "Los Angeles"
-        },
-    }
+users_dict = {}
 
 @app.route('/')
 
