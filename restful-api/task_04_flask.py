@@ -40,8 +40,9 @@ def add_user():
     if username in users_dict:
         return jsonify({"error": "Username already exists"}), 400
 
-    users_dict[username] = {
+    users_dict = {
 
+        "username": username,
         "name": name,
         "age": age,
         "city": city
