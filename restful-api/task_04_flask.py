@@ -2,7 +2,8 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users_dict = {}
+if not hasattr(app, 'users_dict'):
+    app.users_dict = {}
 
 @app.route('/')
 
@@ -13,7 +14,7 @@ def home():
     
 def data():
 
-    return jsonify(list(users_dict.keys())), 200
+    return jsonify(list(app.users_dict.keys())), 200
 
 @app.route('/status')
 def status():
@@ -21,10 +22,10 @@ def status():
 
 @app.route('/users/<username>')
 def users(username):
-    if username not in users_dict:
+    if username not in app.users_dict:
         return jsonify({"error": "User not found"}), 404
-    
-    return jsonify(users_dict.get(username))
+
+    return jsonify(app.users_dict.get(username))
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
@@ -37,11 +38,11 @@ def add_user():
 
     if not username:
         return jsonify({"error": "Username is required"}), 400
-    
-    if username in users_dict:
+
+    if username in app.users_dict:
         return jsonify({"error": "Username already exists"}), 400
 
-    users_dict[username] = {
+    app.users_dict[username] = {
 
         "username": username,
         "name": name,
