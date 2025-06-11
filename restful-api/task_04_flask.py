@@ -40,9 +40,6 @@ def add_user():
 
     if not username:
         return jsonify({"error": "Username is required"}), 400
-    
-    if username in users_dict:
-        return jsonify({"error": "Username already exists"}), 400
 
     users_dict[username] = {
 
