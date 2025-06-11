@@ -21,6 +21,9 @@ def status():
 
 @app.route('/users/<username>')
 def users(username):
+    if username not in users_dict:
+        return jsonify({"error": "User not found"}), 404
+    
     return jsonify(users_dict.get(username))
 
 @app.route('/add_user', methods=['POST'])
@@ -48,7 +51,7 @@ def add_user():
     return jsonify({
         "message": "User added",
         "user": users_dict[username]
-    })
+    }), 201
 
 
 
