@@ -13,7 +13,7 @@ def home():
     
 def data():
     
-    return jsonify(users_dict)
+    return jsonify(users_dict), 200
 
 @app.route('/status')
 def status():
