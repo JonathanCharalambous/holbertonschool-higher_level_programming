@@ -32,7 +32,7 @@ users_dict = {
 def verify_password(username, password):
     user = users_dict.get(username)
     if user and check_password_hash(user["password"], password):
-        return username
+        return user
 
 @app.route('/basic-protected')
 @auth.login_required
