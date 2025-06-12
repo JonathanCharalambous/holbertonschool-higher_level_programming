@@ -34,10 +34,10 @@ def verify_password(username, password):
     if user and check_password_hash(user["password"], password):
         return username
 
-@app.route('/hope')
+@app.route('/basic_protected')
 @auth.login_required
-def hope():
-    return ("Please add Vega to SF6"), 200
+def basic_protected():
+    return ("Basic Auth: Access Granted"), 200
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -49,11 +49,10 @@ def login():
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token), 200
 
-@app.route('/begging', methods=['GET'])
+@app.route('//jwt-protected', methods=['GET'])
 @jwt_required()
-def begging():
-    current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
+def jwt_protected():
+    return jsonify("JWT Auth: Access Granted"), 200
 
 @app.route('/admin')
 @jwt_required()
