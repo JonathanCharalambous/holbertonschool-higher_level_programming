@@ -15,8 +15,17 @@ jwt = JWTManager(app)
 
 users_dict = {
 
-    "vega": generate_password_hash("claw"),
-    "balrog": generate_password_hash("rose")
+    "vega": {
+        "username": "vega",
+        "password":generate_password_hash("claw"),
+        "role" : "admin"
+        },
+
+    "balrog": {
+        "username": "balrog",
+        "password": generate_password_hash("rose"),
+        "role" : "user"
+    }
 }
 
 @auth.verify_password
@@ -45,6 +54,22 @@ def login():
 def begging():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
+
+@app.route('/admin')
+@jwt_required()
+def admin_page():
+    identity = get_jwt_identity()
+    if users_dict[identity]["role"] != "admin":
+        return jsonify({"error": "Access forbidden: Admins only"}), 403
+    return jsonify({"Welcome to the admin page, {}!".format(identity)}), 200
+
+@app.route('/user')
+@jwt_required()
+def user_page():
+    identity = get_jwt_identity()
+    if users_dict[identity]["role"] != "user":
+        return jsonify({"error": "Access forbidden: Users only"}), 403
+    return jsonify({"Welcome to the user page, {}!".format(identity)}), 200
 
 if __name__ == '__main__':
     app.run()
