@@ -33,6 +33,11 @@ def verify_password(username, password):
     user = users_dict.get(username)
     if user and check_password_hash(user["password"], password):
         return user
+    
+@auth.get_user_roles
+def get_user_roles(user):
+    return user.get("role")
+
 
 @app.route('/basic-protected')
 @auth.login_required
