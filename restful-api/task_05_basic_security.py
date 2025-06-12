@@ -30,8 +30,8 @@ users_dict = {
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users_dict and \
-        check_password_hash(users_dict.get(username), password):
+    user = users_dict.get(username)
+    if user and check_password_hash(user["password"], password):
         return username
 
 @app.route('/hope')
