@@ -13,24 +13,23 @@ auth = HTTPBasicAuth()
 app.config["JWT_SECRET_KEY"] = "thisIsMySecretKey"
 jwt = JWTManager(app)
 
-users_dict = {
-
-    "vega": {
-        "username": "vega",
-        "password":generate_password_hash("claw"),
-        "role" : "admin"
-        },
-
-    "balrog": {
-        "username": "balrog",
-        "password": generate_password_hash("rose"),
-        "role" : "user"
+users = {
+    "user1": {
+        "username": "user1",
+        "password": generate_password_hash("password"),
+        "role": "user"
+    },
+    "admin1": {
+        "username": "admin1",
+        "password": generate_password_hash("password"),
+        "role": "admin"
     }
 }
 
+
 @auth.verify_password
 def verify_password(username, password):
-    user = users_dict.get(username)
+    user = users.get(username)
     if user and check_password_hash(user["password"], password):
         return user
     
@@ -70,8 +69,8 @@ def login():
     password = request.json.get("password", None)
     if not username or not password:
         return "Username and password are required", 400
-    
-    user = users_dict.get(username)
+
+    user = users.get(username)
     if not user or not check_password_hash(user["password"], password):
         return "Invalid credentials", 401
 
@@ -87,16 +86,16 @@ def jwt_protected():
 @jwt_required()
 def admin_page():
     identity = get_jwt_identity()
-    if users_dict[identity]["role"] != "admin":
-        return "Admin access required", 403
+    if users[identity]["role"] != "admin":
+        return {"error": "Admin access required"}, 403
     return "Admin Access: Granted", 200
 
 @app.route('/user')
 @jwt_required()
 def user_page():
     identity = get_jwt_identity()
-    if users_dict[identity]["role"] != "user":
-        return "User access required", 403
+    if users[identity]["role"] != "user":
+        return {"error": "User access required"}, 403
     return "User Access: Granted", 200
 
 if __name__ == '__main__':
