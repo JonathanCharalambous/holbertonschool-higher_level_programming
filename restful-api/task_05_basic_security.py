@@ -37,38 +37,38 @@ def verify_password(username, password):
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return ("Basic Auth: Access Granted"), 200
+    return "Basic Auth: Access Granted", 200
 
 @jwt.unauthorized_loader
 def unauthorized_callback(error):
-    return jsonify({"error": "Missing or invalid token"}), 401
+    return "Missing or invalid token", 401
 
 @jwt.invalid_token_loader
 def invalid_token_callback(error):
-    return jsonify({"error": "Invalid token"}), 401
+    return "Invalid token", 401
 
 @jwt.expired_token_loader
 def expired_token_callback(jwt_header, jwt_payload):
-    return jsonify({"error": "Token has expired"}), 401
+    return "Token has expired", 401
 
 @jwt.revoked_token_loader
 def revoked_token_callback(jwt_header, jwt_payload):
-    return jsonify({"error": "Token has been revoked"}), 401
+    return "Token has been revoked", 401
 
 @jwt.needs_fresh_token_loader
 def needs_fresh_token_callback(jwt_header, jwt_payload):
-    return jsonify({"error": "Fresh token required"}), 401
+    return "Fresh token required", 401
 
 @app.route('/login', methods=['POST'])
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
     if not username or not password:
-        return jsonify({"error": "Username and password are required"}), 400
+        return "Username and password are required", 400
     
     user = users_dict.get(username)
     if not user or not check_password_hash(user["password"], password):
-        return jsonify({"error": "Invalid credentials"}), 401
+        return "Invalid credentials", 401
 
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token), 200
@@ -76,23 +76,23 @@ def login():
 @app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
 def jwt_protected():
-    return jsonify("JWT Auth: Access Granted"), 200
+    return "JWT Auth: Access Granted", 200
 
 @app.route('/admin-only')
 @jwt_required()
 def admin_page():
     identity = get_jwt_identity()
     if users_dict[identity]["role"] != "admin":
-        return jsonify({"error": "Admin access required"}), 403
-    return jsonify("Admin Access: Granted"), 200
+        return "Admin access required", 403
+    return "Admin Access: Granted", 200
 
 @app.route('/user')
 @jwt_required()
 def user_page():
     identity = get_jwt_identity()
     if users_dict[identity]["role"] != "user":
-        return jsonify({"error": "User access required"}), 403
-    return jsonify("User Access: Granted"), 200
+        return "User access required", 403
+    return "User Access: Granted", 200
 
 if __name__ == '__main__':
     app.run()
