@@ -1,5 +1,5 @@
 -- Script that retrieves all cities in California
-SELECT * 
+SELECT id, name 
 FROM cities
 WHERE state_id IN (
     SELECT id
