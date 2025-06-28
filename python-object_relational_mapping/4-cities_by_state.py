@@ -10,7 +10,6 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
@@ -21,7 +20,7 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     cursor.execute(
-        "SELECT cities.id, cities.name, states.name" 
+        "SELECT cities.id, cities.name, states.name"
         " FROM cities JOIN states on cities.state_id = states.id"
         " ORDER BY cities.id ASC"
         )
