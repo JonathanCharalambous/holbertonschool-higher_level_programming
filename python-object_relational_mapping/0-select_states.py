@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """script that lists all states from the db hbtn_0d_usa"""
+import pymysql
+pymysql.install_as_MySQLdb()
+
 import MySQLdb
 import sys
 
