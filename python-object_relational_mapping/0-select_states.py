@@ -24,4 +24,3 @@ if __name__ == "__main__":
     rows = cursor.fetchall()
     for result in rows:
         print(result)
-
