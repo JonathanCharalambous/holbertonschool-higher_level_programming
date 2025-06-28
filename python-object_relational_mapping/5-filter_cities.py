@@ -9,7 +9,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-
+    search = sys.argv[4]
 
     db = MySQLdb.connect(
         host='localhost',
@@ -23,10 +23,10 @@ if __name__ == "__main__":
     cursor.execute(
         "SELECT cities.id, cities.name, states.name "
         " FROM cities JOIN states on cities.state_id = states.id"
-        " ORDER BY cities.id ASC"
+        " WHERE BINARY states.name = %s"
+        " ORDER BY cities.id ASC",
+        (search, )
         )
 
     rows = cursor.fetchall()
-
-    for result in rows:
-        print(result)
+    print(", ".join([row[1] for row in rows]))
