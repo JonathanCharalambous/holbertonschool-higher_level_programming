@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     states = session.query(State).filter(State.id == 2).all()
 
     for state in states:
