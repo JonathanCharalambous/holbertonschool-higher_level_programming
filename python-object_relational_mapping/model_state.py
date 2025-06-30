@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""""Define a State class that creates a table for ORM"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
