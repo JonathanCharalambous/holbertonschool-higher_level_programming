@@ -8,6 +8,6 @@ if (argv.length === 3) {
   console.log('Argument found');
 }
 
-if (argv.length === 4) {
+if (argv.length >= 4) {
   console.log('Arguments found');
 }
