@@ -3,9 +3,9 @@ const { argv } = require('node:process');
 
 const num = parseInt(argv[2]);
 if (isNaN(num)) {
-    console.log("Missing number of occurrences");
+  console.log('Missing number of occurrences');
 }
 
-for (let i = 0; i < num; i++){
-    console.log("C is fun");
+for (let i = 0; i < num; i++) {
+  console.log('C is fun');
 }

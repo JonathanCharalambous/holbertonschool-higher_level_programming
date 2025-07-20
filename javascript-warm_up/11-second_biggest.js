@@ -4,13 +4,12 @@ let largest = 0;
 let secondLargest = 0;
 
 argv.forEach((val) => {
-    num = parseInt(val)
-    if(num > largest){
-        secondLargest = largest;
-        largest = num;
-    } else if (num > secondLargest) {
-        secondLargest = num;
-    }
+  const num = parseInt(val);
+  if (num > largest) {
+    secondLargest = largest;
+    largest = num;
+  } else if (num > secondLargest) {
+    secondLargest = num;
+  }
 });
 console.log(secondLargest);
-
