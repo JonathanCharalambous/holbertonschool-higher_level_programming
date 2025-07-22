@@ -45,7 +45,7 @@ def data():
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
             if record_id:
-                cursor.execute("SELECT * FROM Products WHERE id = ?", (record_id))
+                cursor.execute("SELECT * FROM Products WHERE id = ?", (record_id,))
             else:
                 cursor.execute("SELECT * FROM Products")
             data_list = cursor.fetchall()
@@ -55,11 +55,9 @@ def data():
 
     else:
         return "Wrong source"
-    
-    if record_id:
-        data_list = [dict(row) for row in cursor.fetchall()]
-        if not data_list:
-            return "Product not found"
+
+    if record_id and not data_list:
+        return "Product not found"
     return render_template("product_display.html", products=data_list)
     
 
