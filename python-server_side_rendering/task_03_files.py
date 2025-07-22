@@ -39,8 +39,12 @@ def data():
             return f"Error loading CSV: {e}", 500
 
     else:
-        return "Invalid source. Use ?source=json or ?source=csv", 400
+        return "Invalid source. Use ?source=json or ?source=csv", 200
     
+    if record_id:
+        data_list = [item for item in data_list if str(item.get("id")) == str(record_id)]
+        if not data_list:
+            return "Record not found", 404
     return render_template("product_display.html", products=data_list)
     
 
