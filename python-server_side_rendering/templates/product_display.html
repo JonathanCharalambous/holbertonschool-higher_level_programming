@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Products</title>
+    </head>
+    <body>
+        {% if products %}
+            <ul>
+                {% for product in products %}
+                    <li>{{ product.name }}</li>
+                    <li>{{ product.category }}</li>
+                    <li>{{ product.price }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No products found.</p>
+        {% endif %}
+    </body>
+</html>
