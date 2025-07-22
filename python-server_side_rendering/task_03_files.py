@@ -16,7 +16,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/items')
+@app.route('/products')
 def data():
     source = request.args.get('source')
     record_id = request.args.get('id')
@@ -41,7 +41,7 @@ def data():
     else:
         return "Invalid source. Use ?source=json or ?source=csv", 400
     
-    return render_template("items.html", items=data_list)
+    return render_template("product_display.html", products=data_list)
     
 
 if __name__ == '__main__':
