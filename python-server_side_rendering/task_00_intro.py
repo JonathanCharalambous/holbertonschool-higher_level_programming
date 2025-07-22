@@ -3,11 +3,16 @@ def generate_invitations(template, attendees):
     
     inv_num = 0
     if not isinstance(template, str):
-        raise TypeError("Template must be a string")
-    if not template.strip():
-        raise ValueError("Template is empty")
+        print("Template must be a string")
+        return
+
     if not isinstance(attendees, list) or not all(isinstance(a, dict) for a in attendees):
-        raise TypeError("Attendees must be a list of dictionaries")
+        print("Attendees must be a list of dictionaries")
+        return
+
+    if not template.strip():
+        print("Template is empty")
+        return
 
     for attendee in attendees:
         
